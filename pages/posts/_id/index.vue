@@ -2,69 +2,79 @@
   <div v-if="post">
     <div class="auto mb-5 p-1 pb-2">
       <div class="card1">
-      <div class="card" style="width:500px">
-        
+        <div class="card" style="width: 500px">
+          <div>
+            <b-carousel
+              id="carousel-1"
+              v-model="slide"
+              :interval="3000"
+              controls
+              indicators
+              background="#ababab"
+              img-width="300"
+              img-height="480"
+              @sliding-start="onSlideStart"
+              @sliding-end="onSlideEnd"
+            >
+              <div style="opacity: 0.7; color: black; background: black">
+                <b-carousel-slide
+                  v-for="item in post.gallery"
+                  :key="item.id"
+                  :img-src="
+                    'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' +
+                    item.medium
+                  "
+                >
+                </b-carousel-slide>
+              </div>
+            </b-carousel>
+          </div>
+          <div class="card-body">
+            <h5
+              class="card-title"
+              style="color: black; font-size: 27px; text-align: center"
+            >
+              {{ post.model }}
+            </h5>
+            <div class="card-body"></div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                style="font-size: 18px; font-family: georgia"
+              >
+                {{ post.detail.description }}
+              </li>
+              <li
+                class="list-group-item"
+                style="font-size: 18px; font-family: georgia"
+              >
+                <h5>Caracteristicas</h5>
+                {{ post.specs.technical_details.features }}
+              </li>
 
-<div>
-  <b-carousel
-    id="carousel-no-animation"
-    style="text-shadow: 0px 0px 2px #000"
-    no-animation
-    indicators
-    img-width="1024"
-    img-height="480"
-  >
-  <b-carousel-slide
-      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[0].medium "
-    ></b-carousel-slide>
-    <b-carousel-slide
-      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[1].medium "
-    ></b-carousel-slide>
-    <b-carousel-slide
-      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[2].medium "
-    ></b-carousel-slide>
-    <b-carousel-slide
-      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[3].medium "
-    ></b-carousel-slide>
-  </b-carousel>
-</div>
-
-<p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
-
-        
-        <div class="card-body">
-          <h5
-            class="card-title"
-            style="color: black; font-size: 27px; text-align: center"
-          >
-
-            {{ post.model }}
-          </h5>
-          <div class="card-body"></div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              {{post.detail.description}}
-            </li>
-            <li class="list-group-item">
-              <h5>Caracteristicas</h5>
-              {{post.specs.technical_details.features}}
-              <li class="list-group-item">
-              {{post.detail.characteristics.warranty}}
+              <li
+                class="list-group-item"
+                style="font-size: 18px; font-family: georgia"
+              >
+                {{ post.detail.characteristics.warranty }}
               </li>
               <li class="list-group-item">
-              
-              Color:{{post.detail.colors[0].name}}
+                <h5>Colores disponibles</h5>
+                <label
+                  style="font-size: 19px"
+                  v-for="item in post.detail.colors"
+                  :key="item.hex"
+                >
+                  ; {{ item.name }}
+                </label>
               </li>
-            <li class="list-group-item" style="font-size: 26px">
-              {{ post.currency }} {{ post.amount  }}
-            </li>
-            <li class="list-group-item"></li>
-          </ul>
+              <li class="list-group-item" style="font-size: 26px">
+                {{ post.currency }} {{ post.amount }}
+              </li>
+              <li class="list-group-item"></li>
+            </ul>
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
@@ -80,7 +90,6 @@
               id="floatingInput"
               required="required"
             />
-            
           </div>
 
           <div class="form-floating mb-3">
@@ -91,7 +100,6 @@
               id="floatingInput"
               required="required"
             />
-            
           </div>
           <div class="form-floating">
             <label for="floatingPassword">Email</label>
@@ -101,12 +109,11 @@
               id="floatingInput"
               required="required"
             />
-            
           </div>
           <div class="button">
             <div class="col-12">
               <button
-                type="submit"
+                type="button"
                 class="btn btn-primary m-5"
                 style="
                   background: #af1c1c;
@@ -171,7 +178,6 @@
 
 <script>
 export default {
-
   head() {
     return {
       title: "Nissan Store",
@@ -181,10 +187,9 @@ export default {
     return {
       posts: null,
       slide: 0,
-        sliding: null
+      sliding: null,
     };
   },
-
 
   computed: {
     postsId() {
@@ -199,15 +204,20 @@ export default {
     },
   },
 
-
-
   methods: {
     onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      },
+      this.sliding = true;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+    sendForm() {
+      if (document.querySelector(".data").value === "") {
+        button.disabled = true;
+      } else {
+        button.disabled = false;
+      }
+    },
     async fetchCars() {
       this.posts = await this.$axios.$get(
         "https://4my1q6hsyo.api.quickmocker.com/product/",
@@ -220,10 +230,9 @@ export default {
       );
       console.log(this.posts.results);
     },
-    
   },
-  
-    async mounted() {
+
+  async mounted() {
     this.fetchCars();
   },
 };

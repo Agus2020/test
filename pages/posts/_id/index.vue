@@ -9,6 +9,7 @@
             class="card-title"
             style="color: black; font-size: 27px; text-align: center"
           >
+          
             {{ post.model }}
           </h5>
           <div class="card-body"></div>

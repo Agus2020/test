@@ -211,13 +211,6 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    sendForm() {
-      if (document.querySelector(".data").value === "") {
-        button.disabled = true;
-      } else {
-        button.disabled = false;
-      }
-    },
     async fetchCars() {
       this.posts = await this.$axios.$get(
         "https://4my1q6hsyo.api.quickmocker.com/product/",

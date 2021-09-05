@@ -3,13 +3,44 @@
     <div class="auto mb-5 p-1 pb-2">
       <div class="card1">
       <div class="card" style="width:500px">
-        <img  :src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[0].medium " class="card-img-top" :alt="post.model">
+        
+
+<div>
+  <b-carousel
+    id="carousel-no-animation"
+    style="text-shadow: 0px 0px 2px #000"
+    no-animation
+    indicators
+    img-width="1024"
+    img-height="480"
+  >
+  <b-carousel-slide
+      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[0].medium "
+    ></b-carousel-slide>
+    <b-carousel-slide
+      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[1].medium "
+    ></b-carousel-slide>
+    <b-carousel-slide
+      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[2].medium "
+    ></b-carousel-slide>
+    <b-carousel-slide
+      :img-src="'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' + post.gallery[3].medium "
+    ></b-carousel-slide>
+  </b-carousel>
+</div>
+
+<p class="mt-4">
+      Slide #: {{ slide }}<br>
+      Sliding: {{ sliding }}
+    </p>
+
+        
         <div class="card-body">
           <h5
             class="card-title"
             style="color: black; font-size: 27px; text-align: center"
           >
-          
+
             {{ post.model }}
           </h5>
           <div class="card-body"></div>
@@ -149,6 +180,8 @@ export default {
   data() {
     return {
       posts: null,
+      slide: 0,
+        sliding: null
     };
   },
 
@@ -169,6 +202,12 @@ export default {
 
 
   methods: {
+    onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      },
     async fetchCars() {
       this.posts = await this.$axios.$get(
         "https://4my1q6hsyo.api.quickmocker.com/product/",

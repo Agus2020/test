@@ -5,18 +5,18 @@
         <div class="card" style="width: 500px">
           <div>
             <b-carousel
-              id="carousel-1"
+              id="carousel"
               v-model="slide"
-              :interval="3000"
               controls
               indicators
-              background="#ababab"
+              background="gray"
+              :interval="0"
               img-width="300"
               img-height="480"
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
             >
-              <div style="opacity: 0.7; color: black; background: black">
+              <div style="opacity: 0.7;">
                 <b-carousel-slide
                   v-for="item in post.gallery"
                   :key="item.id"
@@ -79,16 +79,16 @@
     </div>
 
     <div class="data p-5 m-5 col-5">
-      <form class="dat">
+      <form class="dat" v-if="verification">
         <div>
           <h1 style="text-align: center">INGRESÁ TUS DATOS</h1>
           <label for="floatingInput">Nombre</label>
           <div class="form-floating mb-3">
             <input
+              minlength="5"
               type="text"
               class="form-control"
               id="floatingInput"
-              required="required"
             />
           </div>
 
@@ -98,7 +98,6 @@
               type="text"
               class="form-control"
               id="floatingInput"
-              required="required"
             />
           </div>
           <div class="form-floating">
@@ -107,12 +106,12 @@
               type="email"
               class="form-control"
               id="floatingInput"
-              required="required"
             />
           </div>
           <div class="button">
             <div class="col-12">
-              <button
+              <b-button
+                :pressed.sync="verification"
                 type="button"
                 class="btn btn-primary m-5"
                 style="
@@ -124,11 +123,17 @@
                 "
               >
                 ENVIARME LA COTIZACIÓN POR MAIL
-              </button>
+              </b-button>
             </div>
           </div>
         </div>
       </form>
+      <div v-else>
+        <h5 style="text-align: center">
+          Gracias por comunicarse con nosotros. En breve un asistente se
+          comunicara con usted
+        </h5>
+      </div>
     </div>
   </div>
 </template>
@@ -185,6 +190,7 @@ export default {
   },
   data() {
     return {
+      verification: true,
       posts: null,
       slide: 0,
       sliding: null,

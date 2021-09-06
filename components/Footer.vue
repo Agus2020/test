@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="pie py-1">
-      <div class="row mx-5 p-3" >
+      <div class="row p-3" >
         <h4>Nissan. Innovation that excites.</h4>
         <div class="col-3 p-3">
           <h6>COTIZACIÓN DE VEHÍCULOS</h6>

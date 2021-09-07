@@ -69,7 +69,7 @@
                 </label>
               </li>
               <li class="list-group-item" style="font-size: 26px">
-                {{ post.currency }} {{ post.amount }}
+                {{ post.detail.price.currency }} {{ post.amount }}
               </li>
               <li class="list-group-item"></li>
             </ul>

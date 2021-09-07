@@ -1,7 +1,7 @@
 <template>
-  <div class="card" style="width: 18rem;text-decoration:none;">
+  <div class="card" style="width: 18rem; text-decoration: none">
     <div class="tar">
-      <nuxt-link :to="'/posts/' + id" style="text-decoration:none">
+      <nuxt-link :to="'/posts/' + id" style="text-decoration: none">
         <img
           :src="
             'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' +
@@ -10,30 +10,20 @@
           class="card-img-top"
           :alt="model"
         />
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li
-              class="list-group-item"
-              style="font-size: 30px;font-family:calibri; text-align: center;color:black"
-            >
-              {{ model }}
-            </li>
-
-            <li class="list-group-item"></li>
-          </ul>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" style="text-align: center;color:black">
-            {{ detail.main_description }}
-          </li>
-          <li class="list-group-item">
-            <p
-              style="font-family: calibri; font-size: 21px;text-align:center"
-            >
-              {{ currency }} {{ amount }}
-            </p>
-          </li>
-        </ul>
+        <h6 style="color:black;text-align:center;font-size:19px">{{model}}</h6> 
+        <li class="list-group-item" style="color: black; padding: 0; margin: 0">
+          <p style="margin-top:10px;opacity:0.3;font-size:17px">
+           PRECIO DESDE
+          </p>
+          <h6 style="position:relative;left:150px;bottom:38px;margin:0;font-size:16px;color:gray">{{detail.price.currency}} {{amount}}</h6>
+        </li>
+        <li class="list-group-item" style="color: black; padding: 0; margin: 0">
+          <h6 style="color: #c60c1d">VER DETALLES DEL MODELO -></h6>
+          <p style="opacity:0.3">
+            Imagenes meramente ilustrativas no reportando la realidad exacta,
+            pudiendo existir variaciones en la percepción
+          </p>
+        </li>
       </nuxt-link>
     </div>
   </div>
@@ -41,12 +31,6 @@
 <style>
 p {
   color: #000000;
-}
-.tar {
-  transition: transform 0.2s;
-}
-.tar:hover {
-  transform: scale(1.1);
 }
 
 .card {
@@ -58,7 +42,6 @@ p {
   width: 40%;
   text-decoration: none;
 }
-
 </style>
 <script>
 export default {

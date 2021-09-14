@@ -15,6 +15,13 @@
         />
     </div>
 </template>
+<style>
+@media (max-width: 439px) {
+    h1{
+        font-size:25px;
+    }
+}
+</style>
 <script>
     import Card from '../../components/Card'
     export default{

@@ -2,7 +2,7 @@
   <div v-if="post">
     <div class="auto mb-5 p-1 pb-2">
       <div class="card1">
-        <div class="card" style="width: 500px">
+        <div class="card" style="width: 500px;width:35rem" >
           <div>
             <b-carousel
               id="carousel"
@@ -16,7 +16,7 @@
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
             >
-              <div style="opacity: 0.7;">
+              <div style="opacity: 0.9;">
                 <b-carousel-slide
                   v-for="item in post.gallery"
                   :key="item.id"
@@ -44,13 +44,7 @@
               >
                 {{ post.detail.description }}
               </li>
-              <li
-                class="list-group-item"
-                style="font-size: 18px; font-family: georgia"
-              >
-                <h5>Caracteristicas</h5>
-                {{ post.specs.technical_details.features }}
-              </li>
+
 
               <li
                 class="list-group-item"
@@ -149,10 +143,10 @@
 .auto {
   width: 460px;
 }
-@media (max-width: 1165px) {
+@media (max-width: 1268px) {
   .data {
     float: left;
-    width: 80%;
+    width: 100%;
   }
   .auto {
     width: 100%;

@@ -19,7 +19,7 @@
         </li>
         <li class="list-group-item" style="color: black; padding: 0; margin: 0">
           <h6 style="color: #c60c1d">VER DETALLES DEL MODELO -></h6>
-          <p style="opacity:0.3">
+          <p class="p-3" style="opacity:0.3">
             Imagenes meramente ilustrativas no reportando la realidad exacta,
             pudiendo existir variaciones en la percepción
           </p>
@@ -42,6 +42,7 @@ p {
   width: 40%;
   text-decoration: none;
 }
+
 </style>
 <script>
 export default {

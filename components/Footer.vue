@@ -1,50 +1,50 @@
 <template>
-  <div class="footer">
+  <div class="footer footerlayout">
     <div class="pie py-1">
-      <div class="row p-3" >
+      <div class="row p-3 rowlayout" >
         <h4>Nissan. Innovation that excites.</h4>
-        <div class="col-3 p-3">
-          <h6>COTIZACIÓN DE VEHÍCULOS</h6>
+        <div class="col-3 p-3 footertext">
+          <h6 class="h6layout">COTIZACIÓN DE VEHÍCULOS</h6>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted"
-                ><p style="color: white">Información Legal</p></a
+              <a href="#" class="nav-link p-0 text-muted alayout"
+                >Información Legal</a
               >
             </li>
           </ul>
         </div>
-        <div class="col-2 p-3">
-          <h6>RALITOR S.A.</h6>
+        <div class="col-2 p-3 footertext">
+          <h6 class="h6layout">RALITOR S.A.</h6>
           <br />
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted"
-                ><p style="color: white">nissan.com.uy</p></a
+              <a href="#" class="nav-link p-0 text-muted alayout"
+                >nissan.com.uy</a
               >
             </li>
             <br />
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted"
-                ><p style="color: white">Políticas de Cookies</p></a
+              <a href="#" class="nav-link p-0 text-muted alayout"
+                >Políticas de Cookies</a
               >
             </li>
           </ul>
         </div>
 
-        <div class="col-2 p-3">
-          <h6>AYUDA AL CLIENTE</h6>
+        <div class="col-2 p-3 footertext">
+          <h6 class="h6layout">AYUDA AL CLIENTE</h6>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted" style="color: white"
-                ><p style="color: white">Políticas de Privacidad</p></a
+              <a href="#" class="nav-link p-0 text-muted alayout"
+                >Políticas de Privacidad</a
               >
             </li>
           </ul>
         </div>
 
-        <div class="col-4 offset-1 p-3">
+        <div class="col-4 offset-1 p-3 footertext">
           <form class="form">
-            <h6>NISSAN SOCIAL</h6>
+            <h6 class="h6layout">NISSAN SOCIAL</h6>
             <div class="d-flex w-100 gap-2">
               <a href="https://www.facebook.com/nissanuruguay"
                 ><img src="../static/f.svg" class="p-1"
@@ -64,7 +64,7 @@
       </div>
 
       <div class="d-flex justify-content-between py-4 my-4 border-top">
-        <div class="derechos">
+        <div class="derechoslayout">
           <p>© 2020 SIMPLICAR. Todos los derechos reservados.</p>
         </div>
       </div>

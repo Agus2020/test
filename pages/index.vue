@@ -4,8 +4,8 @@
   <img src="../static/Banner.jpg" class="card-img" alt="...">
   <div class="card-img-overlay">
     <div class="texto">
-      <h1 class="card-title">AHORA ES ONLINE</h1>
-      <pre class="card-text">
+      <h1 class="card-title tituloindex">AHORA ES ONLINE</h1>
+      <pre class="card-text preindex">
 Con Nissan Store, podés accedera tu nuevo 0km con todos
 los servicios asociados desde la comodidad de tu sofá. 
 Probanos!</pre>
@@ -27,31 +27,31 @@ Probanos!</pre>
     padding:0;
     margin:0;
   }
-  .card-title{
+  .tituloindex{
     color:#AF1C1C;
     font-family:arial black;
     font-size:60px;
   }
-  pre{
+  .preindex{
     color:black;
     font-size:20px;
     font-family:arial;
   }
   @media (max-width:828px)
   {
-    .card-title{
+    .tituloindex{
       font-size:30px;
     }
   }
   @media (max-width:690px)
   {
-    pre{
+    .preindex{
       font-size:16px;
     }
   }
     @media (max-width:581px)
   {
-    pre{
+    .preindex{
       font-size:13px;
     }
   }

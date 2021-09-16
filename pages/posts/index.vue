@@ -1,8 +1,6 @@
 <template>
     <div v-if="posts">
-        <div style="background:#D8D8D8;">
-            <h1 style="text-align:center;color:white;height:150px;font-family:arial black;position:relative;top:40px">¿CUÁL VA A SER TU PRÓXIMO NISSAN?</h1>
-        </div>
+            <h1 class="posttitulo text-center ">¿CUÁL VA A SER TU PRÓXIMO NISSAN?</h1>
         <Card
             v-for= "post in posts.results"
             :key="post.id"
@@ -16,6 +14,12 @@
     </div>
 </template>
 <style>
+.posttitulo{
+    background:#D8D8D8;
+    color:white;
+    height:150px;
+    font-family:arial black;
+}
 @media (max-width: 439px) {
     h1{
         font-size:25px;

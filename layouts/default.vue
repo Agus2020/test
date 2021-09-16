@@ -13,27 +13,32 @@
 
 
 <style>
-.footer {
+.alayout{
+  color: white;
+}
+.footerlayout {
   float: left;
   width: 100%;
   background: #000000;
 }
-.footer p {
+.derechoslayout p {
   color: #9b9b9b;
 }
-.row {
+.rowlayout {
   margin: 0;
   color: white;
   font-size: 12px;
 }
-h6 {
+.h6layout {
   color: #9b9b9b;
   font-size: 13px;
   font-family: arial black;
 }
-
+.footertext a{
+  color:white;
+}
 @media (max-width: 709px) {
-  .derechos {
+  .derechoslayout {
     position: absolute;
     left: 7px;
     width: 100%;
@@ -41,7 +46,7 @@ h6 {
 }
 
 @media (max-width: 659px) {
-  .footer {
+  .footerlayout {
     display: grid;
     grid-auto-columns: 10%;
   }

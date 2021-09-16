@@ -1,49 +1,71 @@
 <template>
-<div class="cardeo">
-  <div class="card" style="width: 18rem; text-decoration: none">
-    <div class="tar">
-      <nuxt-link :to="'/posts/' + id" style="text-decoration: none">
-        <img
-          :src="
+<div class="cardautos">
+      <nuxt-link :to="'/posts/' + id">
+  <b-card
+    no-body
+    style="max-width: 20rem;"
+    :img-src="
             'https://s3.sa-east-1.amazonaws.com/simplimotos-stg.com/' +
             gallery[1].medium
           "
-          class="card-img-top"
-          :alt="model"
-        />
-        <h6 style="color:black;text-align:center;font-size:19px">{{model}}</h6> 
-        <li class="list-group-item" style="color: black; padding: 0; margin: 0">
-          <p style="margin-top:10px;opacity:0.3;font-size:17px">
-           PRECIO DESDE
-          </p>
-          <h6 style="position:relative;left:150px;bottom:38px;margin:0;font-size:16px;color:gray">{{detail.price.currency}} {{amount}}</h6>
-        </li>
-        <li class="list-group-item" style="color: black; padding: 0; margin: 0">
-          <h6 style="color: #c60c1d;padding:10px">VER DETALLES DEL MODELO -></h6>
-          <p class="p-3" style="opacity:0.3">
+  >
+    <template #header>
+      <h4 class="mb-0 cardtituloauto text-center">{{model}}</h4>
+    </template>
+
+    <b-card-body>
+      <b-card-text class="text-center textoautoimagenes">
             Imagenes meramente ilustrativas no reportando la realidad exacta,
             pudiendo existir variaciones en la percepción
-          </p>
-        </li>
+      </b-card-text>
+    </b-card-body>
+
+    <b-list-group flush class="carddetallesauto text-center">
+      <b-list-group-item>VER DETALLES DEL MODELO -></b-list-group-item>
+    </b-list-group>
+
+    <b-card-body class="cardprecioauto text-center">
+    {{detail.price.currency}} {{amount}}
+    </b-card-body>
+  </b-card>
+
       </nuxt-link>
-    </div>
-  </div>
-  </div>
+</div>
+
 </template>
 <style>
-p {
-  color: #000000;
-}
-.card {
-  margin: 40px;
-  float: left;
-  width: 40%;
-}
-.card-group {
-  width: 40%;
-  text-decoration: none;
-}
+  .cardautos{
+    width:350px;
+    float:left;
+    margin:10px;
+    text-decoration: none;
+  }
+  .cardtituloauto{
+    color:black;
+    font-size:19px;
+  }
+  .carddetallesauto{
+    color: #c60c1d;
+    padding:10px;
+  }
+    .textoautoimagenes{
+    color:black;
+    opacity:0.5;
+  }
 
+  .cardprecioauto{
+    color:black;
+    opacity:0.6;
+    font-size:17px;
+  }
+  .precioautogeneral{
+    color:black;
+    display:flex;
+    float:right;
+  }
+  a:hover{
+    text-decoration:none;
+  }
 </style>
 <script>
 export default {

@@ -1,4 +1,5 @@
 <template>
+<div class="cardeo">
   <div class="card" style="width: 18rem; text-decoration: none">
     <div class="tar">
       <nuxt-link :to="'/posts/' + id" style="text-decoration: none">
@@ -18,7 +19,7 @@
           <h6 style="position:relative;left:150px;bottom:38px;margin:0;font-size:16px;color:gray">{{detail.price.currency}} {{amount}}</h6>
         </li>
         <li class="list-group-item" style="color: black; padding: 0; margin: 0">
-          <h6 style="color: #c60c1d">VER DETALLES DEL MODELO -></h6>
+          <h6 style="color: #c60c1d;padding:10px">VER DETALLES DEL MODELO -></h6>
           <p class="p-3" style="opacity:0.3">
             Imagenes meramente ilustrativas no reportando la realidad exacta,
             pudiendo existir variaciones en la percepción
@@ -27,12 +28,12 @@
       </nuxt-link>
     </div>
   </div>
+  </div>
 </template>
 <style>
 p {
   color: #000000;
 }
-
 .card {
   margin: 40px;
   float: left;

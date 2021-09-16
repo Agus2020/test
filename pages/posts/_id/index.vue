@@ -2,21 +2,21 @@
   <div v-if="post">
     <div class="auto mb-5 p-1 pb-2">
       <div class="card1">
-        <div class="card" style="width: 500px;width:35rem" >
+        <div class="card" style="width: 500px; width: 35rem">
           <div>
             <b-carousel
-              id="carousel"
+              id="carousel-1"
               v-model="slide"
               controls
               indicators
               background="gray"
-              :interval="0"
-              img-width="300"
+              :interval="5000"
+              img-width="2000"
               img-height="480"
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
             >
-              <div style="opacity: 0.9;">
+              <div style="opacity: 0.9">
                 <b-carousel-slide
                   v-for="item in post.gallery"
                   :key="item.id"
@@ -29,49 +29,40 @@
               </div>
             </b-carousel>
           </div>
-          <div class="card-body">
-            <h5
-              class="card-title"
-              style="color: black; font-size: 27px; text-align: center"
-            >
-              {{ post.model }}
-            </h5>
-            <div class="card-body"></div>
-            <ul class="list-group list-group-flush">
-              <li
-                class="list-group-item"
-                style="font-size: 18px; font-family: georgia"
-              >
-                {{ post.detail.description }}
-              </li>
+          <table class="d-name d-md-table table text-muted text-center">
+            <tbody>
+              <tr class="fw-bold">
+                <td>
+                  <ul class="list-group list-group-flash" style="width: 90%">
+                   
+                                     <li class="list-group-item">
+                      {{ post.model }}
+                    </li>
+                    <li class="list-group-item">
+                      {{ post.detail.description }}
+                    </li>
 
-
-              <li
-                class="list-group-item"
-                style="font-size: 18px; font-family: georgia"
+                    <li class="list-group-item">
+                      {{ post.detail.price.currency }} {{ post.amount }}
+                    </li>
+                    <li class="list-group-item">
+                      {{ post.detail.characteristics.warranty }}
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <label
+                class="text-left"
+                v-for="item in post.detail.colors"
+                :key="item"
               >
-                {{ post.detail.characteristics.warranty }}
-              </li>
-              <li class="list-group-item">
-                <h5>Colores disponibles</h5>
-                <label
-                  style="font-size: 19px"
-                  v-for="item in post.detail.colors"
-                  :key="item.hex"
-                >
-                  ; {{ item.name }}
-                </label>
-              </li>
-              <li class="list-group-item" style="font-size: 26px">
-                {{ post.detail.price.currency }} {{ post.amount }}
-              </li>
-              <li class="list-group-item"></li>
-            </ul>
-          </div>
+                , {{ item.name }}</label
+              >
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-
     <div class="data p-5 m-5 col-5">
       <form class="dat" v-if="verification">
         <div>
@@ -88,19 +79,11 @@
 
           <div class="form-floating mb-3">
             <label for="floatingInput">Telefono</label>
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-            />
+            <input type="text" class="form-control" id="floatingInput" />
           </div>
           <div class="form-floating">
             <label for="floatingPassword">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="floatingInput"
-            />
+            <input type="email" class="form-control" id="floatingInput" />
           </div>
           <div class="button">
             <div class="col-12">

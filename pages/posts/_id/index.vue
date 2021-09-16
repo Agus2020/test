@@ -51,7 +51,7 @@
           <label
             class="text-left"
             v-for="item in post.detail.colors"
-            :key="item"
+            :key="item.id"
           >
             , {{ item.name }}</label
           >
@@ -59,28 +59,27 @@
       </table>
     </div>
 
-    
     <div class="data p-5 m-5 col-5 formid">
       <form class="dat" v-if="verification">
         <div>
           <h1 class="text-center">INGRESÁ TUS DATOS</h1>
-          <label for="floatingInput">Nombre</label>
+          <label for="floatingInput" class="text-center">Nombre</label>
           <div class="form-floating mb-3">
             <input
               minlength="5"
               type="text"
-              class="form-control"
+              class="form-control inputid"
               id="floatingInput"
             />
           </div>
 
           <div class="form-floating mb-3">
-            <label for="floatingInput">Telefono</label>
-            <input type="text" class="form-control" id="floatingInput" />
+            <label for="floatingInput" class="text-center">Telefono</label>
+            <input type="text" class="form-control inputid" id="floatingInput" />
           </div>
           <div class="form-floating">
-            <label for="floatingPassword">Email</label>
-            <input type="email" class="form-control" id="floatingInput" />
+            <label for="floatingPassword" class="text-center">Email</label>
+            <input type="email" class="form-control inputid" id="floatingInput" />
           </div>
           <div class="col-12">
             <b-button
@@ -105,8 +104,8 @@
 
 
 <style>
-.carouselid{
-  opacity: 0.9
+.carouselid {
+  opacity: 0.9;
 }
 .formid {
   float: left;
@@ -124,12 +123,38 @@
   font-size: 17px;
   width: 350px;
 }
-.uldescripcionid{
+.uldescripcionid {
   width: 90%;
 }
+
 @media (max-width: 1193px) {
+  .formid{
+    width:300px;
+  }
+  .formid .buttonid{
+    width:150px;
+    height:60px;
+  }
+}
+@media (max-width: 995px) {
+  .autoid{
+    float:none;
+    margin:50px;
+    width:80%;
+  }
   .formid {
-    width: 400px;
+    width: 100%;
+  }
+  .formid .buttonid{
+    width:350px;
+  }
+  .inputid{
+    width:650px;
+  }
+}
+@media (max-width: 995px) {
+  .formid .inputid{
+    width:350px;
   }
 }
 </style>

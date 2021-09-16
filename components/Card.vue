@@ -25,7 +25,7 @@
     </b-list-group>
 
     <b-card-body class="cardprecioauto text-center">
-    {{detail.price.currency}} {{amount}}
+    {{detail.price.currency}} {{detail.price.amount}}
     </b-card-body>
   </b-card>
 
@@ -37,7 +37,7 @@
   .cardautos{
     width:350px;
     float:left;
-    margin:10px;
+    margin:15px;
     text-decoration: none;
   }
   .cardtituloauto{
@@ -50,7 +50,7 @@
   }
     .textoautoimagenes{
     color:black;
-    opacity:0.5;
+    opacity:0.3;
   }
 
   .cardprecioauto{

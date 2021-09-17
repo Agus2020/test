@@ -39,6 +39,10 @@
     float:left;
     margin:15px;
     text-decoration: none;
+    opacity:0.8;
+  }
+  .cardautos:hover{
+    opacity:1;
   }
   .cardtituloauto{
     color:black;
